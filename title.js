@@ -33,7 +33,9 @@ export default function title() {
                 <Text>{item.day}</Text>
                 <Text>{item.oldprice}</Text>
                 <Text>{item.newprice}</Text>
-                
+                <Text>{item.feature[0]}</Text>
+                <Text>{item.feature[1]}</Text>
+                <Text>{item.feature[2]}</Text>
             </SafeAreaView>
             
 
