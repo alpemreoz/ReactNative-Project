@@ -30,6 +30,7 @@ export default function title() {
             <SafeAreaView>
                 <Text>{item.title}</Text>
                 <Text>{item.subTitle}</Text>
+                <Text>{item.day}</Text>
                 
             </SafeAreaView>
             
