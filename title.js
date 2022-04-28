@@ -38,7 +38,7 @@ export default function title() {
                 <Text>{item.feature[2]}</Text>
                 <Text>{item.caption}</Text>
                 <Text>{item.time}</Text>
-                
+                <Text>{item.button}</Text>
             </SafeAreaView>
             
 
