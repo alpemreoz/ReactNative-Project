@@ -7,6 +7,7 @@ import {
   Pressable,
 } from "react-native";
 import React from "react";
+import { AntDesign } from '@expo/vector-icons';
 
 const DATA = [
   {
@@ -26,6 +27,7 @@ const DATA = [
 export default function title() {
   return (
     <SafeAreaView>
+
       <Text style={styles.title}>{DATA[0].title}</Text>
       <Text style={styles.subTitle}>{DATA[0].subTitle}</Text>
       <Text style={styles.day}>{DATA[0].day}</Text>
@@ -37,9 +39,9 @@ export default function title() {
         renderItem={({ item }) => (
           <SafeAreaView>
             
-            <Text style={styles.feature}>{item.feature[0]}</Text>
-            <Text style={styles.feature}>{item.feature[1]}</Text>
-            <Text style={styles.feature}>{item.feature[2]}</Text>
+            <Text style={styles.feature}><AntDesign name="check" size={24} color="gold" />{item.feature[0]}</Text>
+            <Text style={styles.feature}><AntDesign name="check" size={24} color="gold" />{item.feature[1]}</Text>
+            <Text style={styles.feature}><AntDesign name="check" size={24} color="gold" />{item.feature[2]}</Text>
             
           </SafeAreaView>
         )}
