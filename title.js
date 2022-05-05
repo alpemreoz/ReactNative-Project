@@ -26,27 +26,29 @@ const DATA = [
 export default function title() {
   return (
     <SafeAreaView>
+      <Text style={styles.title}>{DATA[0].title}</Text>
+      <Text style={styles.subTitle}>{DATA[0].subTitle}</Text>
+      <Text style={styles.day}>{DATA[0].day}</Text>
+      <Text style={styles.oldprice}>{DATA[0].oldprice}</Text>
+      <Text style={styles.newprice}>{DATA[0].newprice}</Text>
       <FlatList
         data={DATA}
         keyExtractor={(index) => index.id}
         renderItem={({ item }) => (
           <SafeAreaView>
-            <Text style={styles.title}>{item.title}</Text>
-            <Text style={styles.subTitle}>{item.subTitle}</Text>
-            <Text style={styles.day}>{item.day}</Text>
-            <Text style={styles.oldprice}>{item.oldprice}</Text>
-            <Text style={styles.newprice}>{item.newprice}</Text>
+            
             <Text style={styles.feature}>{item.feature[0]}</Text>
             <Text style={styles.feature}>{item.feature[1]}</Text>
             <Text style={styles.feature}>{item.feature[2]}</Text>
-            <Text style={styles.caption}>{item.caption}</Text>
-            <Text style={styles.caption}>{item.time}</Text>
-            <Pressable style={styles.button}>
-              <Text style={styles.buttonText}>{item.button}</Text>
-            </Pressable>
+            
           </SafeAreaView>
         )}
       />
+      <Text style={styles.caption}>{DATA[0].caption}</Text>
+      <Text style={styles.caption}>{DATA[0].time}</Text>
+      <Pressable style={styles.button}>
+        <Text style={styles.buttonText}>{DATA[0].button}</Text>
+      </Pressable>
     </SafeAreaView>
   );
 }
