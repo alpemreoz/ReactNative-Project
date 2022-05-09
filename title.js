@@ -9,7 +9,7 @@ import {
 import React from "react";
 import { AntDesign } from '@expo/vector-icons';
 
-const DATA = [
+const DATA = 
   {
     id: 1,
     title: "Tinder Gold",
@@ -17,39 +17,61 @@ const DATA = [
     day: "Today",
     oldprice: "was 520",
     newprice: "now 270",
-    feature: ["unlimited liked", "see who likes you", "boost your profile"],
+    feature: [
+      { 
+        id:1,
+        title:"unlimited liked"
+      },
+      { 
+        id:2,
+        title:"see who likes you"
+      },
+      { 
+        id:3,
+        title:"boost your profile"
+      }, 
+    ],
     caption: "cancel anytime ,recurring billing, reviwes at full price",
     time: "offer ends in 23:59:16",
     button: "continue",
-  },
-];
+  };
+
+
+
+const Item = ({ deneme }) => (
+  <SafeAreaView >
+    <Text style={styles.feature}><AntDesign name="check" size={24} color="gold" />{deneme}</Text>
+  </SafeAreaView>
+);
+
+
+console.log("title",title)
 
 export default function title() {
-  return (
-    <SafeAreaView>
 
-      <Text style={styles.title}>{DATA[0].title}</Text>
-      <Text style={styles.subTitle}>{DATA[0].subTitle}</Text>
-      <Text style={styles.day}>{DATA[0].day}</Text>
-      <Text style={styles.oldprice}>{DATA[0].oldprice}</Text>
-      <Text style={styles.newprice}>{DATA[0].newprice}</Text>
+  const featureItem = ({ item }) => (
+    <Item deneme={item.title} />
+  )
+
+  return (
+    <SafeAreaView
+    
+    >
+      <Text style={styles.title}>{DATA.title}</Text>
+      <Text style={styles.subTitle}>{DATA.subTitle}</Text>
+      <Text style={styles.day}>{DATA.day}</Text>
+      <Text style={styles.oldprice}>{DATA.oldprice}</Text>
+      <Text style={styles.newprice}>{DATA.newprice}</Text>
+      
       <FlatList
-        data={DATA}
-        keyExtractor={(index) => index.id}
-        renderItem={({ item }) => (
-          <SafeAreaView>
-            
-            <Text style={styles.feature}><AntDesign name="check" size={24} color="gold" />{item.feature[0]}</Text>
-            <Text style={styles.feature}><AntDesign name="check" size={24} color="gold" />{item.feature[1]}</Text>
-            <Text style={styles.feature}><AntDesign name="check" size={24} color="gold" />{item.feature[2]}</Text>
-            
-          </SafeAreaView>
-        )}
+        data={DATA.feature}
+        keyExtractor={item=>item}
+        renderItem={ featureItem } 
       />
-      <Text style={styles.caption}>{DATA[0].caption}</Text>
-      <Text style={styles.caption}>{DATA[0].time}</Text>
+      <Text style={styles.caption}>{DATA.caption}</Text>
+      <Text style={styles.caption}>{DATA.time}</Text>
       <Pressable style={styles.button}>
-        <Text style={styles.buttonText}>{DATA[0].button}</Text>
+        <Text style={styles.buttonText}>{DATA.button}</Text>
       </Pressable>
     </SafeAreaView>
   );
